@@ -1,0 +1,74 @@
+Print both Trees to the console and compare the difference between your 
+Binary Search Tree and your Heap.
+
+  I struggled to print both trees to the console but I was able to 
+  print to 'comparison.txt' output files.  The binary search output 
+  doesn't appear to be in any 'easy to spot' order while the heap 
+  comparison is clearly in rank decending order.
+
+  (HEAP TREE)                                     (BINARY TREE)
+  Pacific Rim: 72																	The Matrix: 87
+  Braveheart: 78																	Braveheart: 78
+  Star Wars: Return of the Jedi: 80								Mad Max 2: The Road Warrior: 98
+  Donnie Darko: 85																Pacific Rim: 72
+  District 9: 90																	Inception: 86
+  The Martian: 92																	District 9: 90
+  The Matrix: 87																	Star Wars: Return of the Jedi: 80
+  Star Wars: The Empire Strikes Back: 94					The Shawshank Redemption: 91
+  Inception: 86																		The Martian: 92										
+  Star Wars: A New Hope: 93												Star Wars: The Empire Strikes Back: 94
+  The Shawshank Redemption: 91										Star Wars: A New Hope: 93
+  Mad Max 2: The Road Warrior: 98
+
+How much time does an average insertion consume in the 
+Binary Search Tree compared to the Heap? 
+  The Heap insertion is a great deal more time consuming.
+
+How much time does finding 50000 in the Binary Search Tree consume 
+compared to the Heap?
+  I wouldn't know since my system failed to load 100,000 in the Heap 
+  test.  (see SystemStackError below)
+
+When would you use a Binary Search Tree and why?
+  When you have a large input size a Binary Search Tree will 
+  perform much better than the Heap Tree.
+
+When would you use an Heap and why?
+  When you're sure your input size will remain small depending 
+  on your hardware the Heap Tree may work best.  
+
+BINARY BENCHMARK:
+$ ruby benchmark.rb
+              user     system      total        real
+Push 100,000 items to tree 1:   1.740000   0.110000   1.850000 (  2.130898)
+Push 100,000 items to tree 2:   2.120000   0.040000   2.160000 (  2.272401)
+Push 100,000 items to tree 3:   2.270000   0.060000   2.330000 (  2.342977)
+>avg:     2.043333   0.070000   2.113333 (  2.248759)
+              user     system      total        real
+Find 50,000th item in tree 1:   0.040000   0.000000   0.040000 (  0.044621)
+Find 50,000th item in tree 2:   0.050000   0.000000   0.050000 (  0.041917)
+Find 50,000th item in tree 3:   0.030000   0.000000   0.030000 (  0.042283)
+>avg:     0.040000   0.000000   0.040000 (  0.042940)
+              user     system      total        real
+Push 500,000 items to tree 1:  11.270000   0.250000  11.520000 ( 11.522990)
+Push 500,000 items to tree 2:  11.330000   0.370000  11.700000 ( 11.793080)
+Push 500,000 items to tree 3:  13.510000   0.440000  13.950000 ( 13.996106)
+>avg:    12.036667   0.353333  12.390000 ( 12.437392)
+
+
+HEAP BENCHMARK:
+$ ruby benchmark.rb
+              user     system      total        real
+Push 10,000 items to tree 1:  45.900000   0.030000  45.930000 ( 47.131041)
+Push 10,000 items to tree 2:  42.750000   0.040000  42.790000 ( 42.941740)
+Push 10,000 items to tree 3:  39.400000   0.000000  39.400000 ( 39.535350)
+>avg:    42.683333   0.023333  42.706667 ( 43.202710)
+              user     system      total        real
+Find 5,000th item in tree 1:   0.000000   0.000000   0.000000 (  0.000042)
+Find 5,000th item in tree 2:   0.000000   0.000000   0.000000 (  0.000035)
+Find 5,000th item in tree 3:   0.000000   0.000000   0.000000 (  0.000036)
+>avg:     0.000000   0.000000   0.000000 (  0.000038)
+
+$ ruby benchmark.rb
+              user     system      total        real
+Push 100,000 items to tree 1: /min_heap.rb:73:in `find_parent': stack level too deep (SystemStackError)

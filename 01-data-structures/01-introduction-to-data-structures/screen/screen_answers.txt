@@ -1,0 +1,9 @@
+How does your data structure allow developers to access and manipulate the data?
+  Access the nested array by submitting valid x & y values for matrix[x][y].
+  Manipulating the data can occur by using the collect method.  
+
+If a developer wanted to find a specific element in your data structure, how would you search for it?
+  A each or each_with_index routine would find a specific element.
+
+What other real-world data can each structure represent?
+  A computerized game of Checkers would be a good use for a nested array structure.

@@ -1,0 +1,14 @@
+We learned in the previous checkpoint one of the consequences of using 
+any Array is the potential it has to asks for more memory than the operating 
+system allows.  Our routine is recursively doubling the size of Array we didn't 
+delete which makes this a very poor choice for a production environment.
+
+Hash Values:
+... ["Empire Strikes Back"] = "Excellent" - Hash: 44
+ ["A New Hope"] = "Average" - Hash: 43
+ ["Return of the Jedi"] = "The Best" - Hash: 30
+.. ["key"] = "value" - Hash: 1
+. ["The Lord of the Rings: The Fellowship of the Ring"] = "3 hours, 48 minutes" - Hash: 5
+ ["The Lord of the Rings: The Two Towers"] = "3 hours, 55 minutes" - Hash: 4
+ ["The Lord of the Rings: The Fellowship of the Ring"] = "3 hours, 48 minutes" - Hash: 17
+ ["The Lord of the Rings: The Two Towers"] = "3 hours, 55 minutes" - Hash: 4

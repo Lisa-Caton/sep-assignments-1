@@ -1,0 +1,40 @@
+Collision strategies not mentioned:
+
+1) Coalesced hashing
+
+It uses the concept of Open Addressing(linear probing) to find first empty 
+place for colliding element from the bottom of the hash table and the 
+concept of Separate Chaining to link the colliding elements to each other 
+through pointers. The hash function used is h=(key)%(total number of keys).
+
+source:https://www.geeksforgeeks.org/coalesced-hashing/
+
+2) Double Hashing
+
+Double hashing is a collision resolving technique in Open Addressed Hash 
+tables. Double hashing uses the idea of applying a second hash function 
+to key when a collision occurs.
+
+Double hashing can be done using :
+(hash1(key) + i * hash2(key)) % TABLE_SIZE
+Here hash1() and hash2() are hash functions and TABLE_SIZE
+is size of hash table.
+(We repeat by increasing i when collision occurs)
+
+source:https://www.geeksforgeeks.org/double-hashing/
+
+3) Hopscotch hashing
+
+The algorithm uses a single array of n buckets. For each bucket, its 
+neighborhood is a small collection of nearby consecutive buckets 
+(i.e. ones with close indices to the original hashed bucket). 
+
+The desired property of the neighborhood is that the cost of finding 
+an item in the buckets of the neighborhood is close to the cost of 
+finding it in the bucket itself (for example, by having buckets in the 
+neighborhood fall within the same cache line). The size of the neighborhood 
+must be sufficient to accommodate a logarithmic number of items in the worst 
+case (i.e. it must accommodate log(n) items), but only a constant number on 
+average. If some bucket's neighborhood is filled, the table is resized.
+
+source:https://en.wikipedia.org/wiki/Hopscotch_hashing

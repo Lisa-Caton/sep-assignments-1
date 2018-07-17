@@ -1,0 +1,29 @@
+What is Spatial Locality and why does it benefit performance?
+  Spatial locality refers to the use of data elements within relatively 
+  close storage locations.  A benefit is the system will perform less 
+  reads to RAM, which is a process that takes longer than reading from Cache.
+
+Compare the performance of an Array to a Linked List using the Benchmark module.
+  Compare the time it takes to create a 10,000 item Array to appending 10,000 
+  items to a Linked List.
+
+                                    user        system      total        real
+  Push    10,000 items to MyArray   0.000000   0.000000   0.000000 (  0.006384)
+  Append  10,000 items to MyList    0.030000   0.000000   0.030000 (  0.039444)
+
+
+  Compare the time it takes to access the 5000th element of the Array and the 
+  5000th Node in the Linked List.
+
+  Find 5,000th item in MyArray  0.000000   0.000000   0.000000 (  0.000018)
+  Find 5,000th item in MyList   0.000000   0.000000   0.000000 (  0.002023)
+
+
+  Compare the time it takes to remove the 5000th element from the Array to 
+  removing the 5000th Node in the Linked List.
+
+  Delete 5,000th item in MyArray  0.000000   0.000000   0.000000 (  0.000036)
+  Delete 5,000th item in MyList   0.020000   0.000000   0.020000 (  0.003477)
+
+  In the Array, the 5001st item becomes the 5000th, and so on.
+

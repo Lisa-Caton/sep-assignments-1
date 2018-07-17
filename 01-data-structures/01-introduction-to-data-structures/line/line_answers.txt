@@ -1,0 +1,12 @@
+How does your data structure allow developers to access and manipulate the data?
+  Developers can access the array using the element index and can manipulate
+  the data by iterating through the array structure.
+
+If a developer wanted to find a specific element in your data structure, how would you search for it?
+  The include? method is one way to find a specific element in the array.
+
+What other real-world data can each structure represent?
+  A list of an endless number of items.
+
+
+

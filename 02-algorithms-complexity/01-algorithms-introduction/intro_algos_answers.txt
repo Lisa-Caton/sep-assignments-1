@@ -1,0 +1,84 @@
+Describe three or more primitive algorithms used in your day-to-day life
+
+
+Dropping a 53' dry van trailer after backing.
+
+1: IF the driver side window is NOT down THEN roll it down
+2: Set trailer and tractor breaks THEN remove the key from the ignition 
+3: Exit the truck from the driver side door
+4: Place the key on the truck floor near the brake pedal 
+   OR 
+   Place the key in your pocket
+5: Take a step back
+6: Close the truck door
+7: Unhook and secure the airlines and electrical cord
+8: IF wheel chocks are available THEN 
+    walk down the driver side and place a wheel chock against the front 
+    of the outside tire closest to the nose of the trailer
+9: Walk all the way around to the other side of the trailer passing by 
+    the front of the truck
+10: Stop at the trailer landing gear crank handle
+11: Pull on the handle UNTIL it is in high gear
+12: Crank the handle UNTIL the pads are just barely touching the ground
+    OR
+    about half an inch off the ground
+13: Step to the 5th wheel lever 
+14: Pull the 5th wheel lever to release the locking jaw
+15: Perform a visual inspection that the locking jaw is released
+16: Enter the truck on the driver's side
+17: Get the key
+18: Deflate the tractor air-bags
+19: Place the truck in neutral
+20: Start the engine
+21: Release the tractor breaks
+22: In a Low gear move forward no more than two feet
+23: Place the truck in neutral
+24: Set the tractor breaks
+25: Exit the truck from the driver side door
+26: Step toward the trailer
+27: IF the trailer kingpin is detached from the 5th wheel plate 
+      AND the dolly legs are touching the ground THEN
+      the trailer is successfully dropped.
+
+
+Make MY bowl of Honey Nut Cheerios
+
+1: Enter the kitchen
+2: Set favorite bowl equal to Rubbermaid 7 cup, 4.5 inches high square-like bowl
+3: IF Cheerios are not in the cabinet THEN 
+    go to Kroger's to replenish 
+   ELSE
+    remove the box from the cabinet
+4: Pour enough Cheerios in the bowl to fill the bowl about half way
+5: IF milk is not in the refrigerator THEN
+    go to Kroger's to replenish
+   ELSE
+    remove the milk from the refrigerator
+6: Pour enough milk in the bowl to make the Cheerios float to the rim of the bowl
+7: IF the box has more Cheerios THEN
+    place the box in the cabinet
+   OTHERWISE
+    place the box in the recycle bin  
+8: IF the milk container has more milk THEN
+    place the milk in the refrigerator
+   OTHERWISE
+    place the empty container in the recycle bin 
+9: Check for a clean spoon in the dishrack or drawer
+10: Grab the bowl and spoon
+11: Sit in favorite chair
+12: Bless the food
+13: Enjoy the meal
+
+
+Start my car 
+
+1: Open the driver side door
+2: Sit down
+3: Insert the key in the ignition
+4: Turn the key to the position just before the dash lights come on
+5: Press and hold the break pedal
+6: Change the gear from park to neutral
+7: Turn the key all the way until the car starts
+8: Release the key to the Start position
+
+

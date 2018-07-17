@@ -1,0 +1,193 @@
+key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.16666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+key value bracket module (1)
+Load factor: 0.3333333333333333 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.3333333333333333 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+key value bracket module (1)
+Load factor: 0.5 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.5 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.5 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.6666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.6666666666666666 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.6666666666666666 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.6666666666666666 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.8333333333333334 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.8333333333333334 Hash: 2 -> Index: 2 -> Key: Star Wars: The Empire Strikes Back -> Value: Number Five
+Load factor: 0.8333333333333334 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.8333333333333334 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.8333333333333334 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+.key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.16666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+key value bracket module (1)
+Load factor: 0.3333333333333333 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.3333333333333333 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+key value bracket module (1)
+Load factor: 0.5 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.5 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.5 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.6666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.6666666666666666 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.6666666666666666 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.6666666666666666 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.8333333333333334 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.8333333333333334 Hash: 2 -> Index: 2 -> Key: Star Wars: The Empire Strikes Back -> Value: Number Five
+Load factor: 0.8333333333333334 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.8333333333333334 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.8333333333333334 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+.key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.16666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+key value bracket module (1)
+Load factor: 0.3333333333333333 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.3333333333333333 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+key value bracket module (1)
+Load factor: 0.5 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.5 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.5 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.6666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.6666666666666666 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.6666666666666666 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.6666666666666666 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.8333333333333334 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.8333333333333334 Hash: 2 -> Index: 2 -> Key: Star Wars: The Empire Strikes Back -> Value: Number Five
+Load factor: 0.8333333333333334 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.8333333333333334 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.8333333333333334 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.25 Hash: 1 -> Index: 1 -> Key: key -> Value: value
+.key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.16666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+key value bracket module (1)
+Load factor: 0.3333333333333333 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.3333333333333333 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+key value bracket module (1)
+Load factor: 0.5 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.5 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.5 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.6666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.6666666666666666 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.6666666666666666 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.6666666666666666 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.8333333333333334 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.8333333333333334 Hash: 2 -> Index: 2 -> Key: Star Wars: The Empire Strikes Back -> Value: Number Five
+Load factor: 0.8333333333333334 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.8333333333333334 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.8333333333333334 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+key value bracket module (1)
+Load factor: 1.0 Hash: 0 -> Index: 0 -> Key: key -> Value: value
+key value bracket module (1)
+.key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.16666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+key value bracket module (1)
+Load factor: 0.3333333333333333 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.3333333333333333 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+key value bracket module (1)
+Load factor: 0.5 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.5 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.5 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.6666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.6666666666666666 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.6666666666666666 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.6666666666666666 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.8333333333333334 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.8333333333333334 Hash: 2 -> Index: 2 -> Key: Star Wars: The Empire Strikes Back -> Value: Number Five
+Load factor: 0.8333333333333334 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.8333333333333334 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.8333333333333334 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+.key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.16666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+key value bracket module (1)
+Load factor: 0.3333333333333333 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.3333333333333333 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+key value bracket module (1)
+Load factor: 0.5 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.5 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.5 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.6666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.6666666666666666 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.6666666666666666 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.6666666666666666 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.8333333333333334 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.8333333333333334 Hash: 2 -> Index: 2 -> Key: Star Wars: The Empire Strikes Back -> Value: Number Five
+Load factor: 0.8333333333333334 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.8333333333333334 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.8333333333333334 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+.key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.16666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+key value bracket module (1)
+Load factor: 0.3333333333333333 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.3333333333333333 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+key value bracket module (1)
+Load factor: 0.5 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.5 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.5 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.6666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.6666666666666666 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.6666666666666666 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.6666666666666666 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.8333333333333334 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.8333333333333334 Hash: 2 -> Index: 2 -> Key: Star Wars: The Empire Strikes Back -> Value: Number Five
+Load factor: 0.8333333333333334 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.8333333333333334 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.8333333333333334 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+.key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.16666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+key value bracket module (1)
+Load factor: 0.3333333333333333 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.3333333333333333 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+key value bracket module (1)
+Load factor: 0.5 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.5 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.5 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.6666666666666666 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.6666666666666666 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.6666666666666666 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.6666666666666666 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+Load factor: 0.8333333333333334 Hash: 0 -> Index: 0 -> Key: Star Wars: The Phantom Menace -> Value: Number One
+Load factor: 0.8333333333333334 Hash: 2 -> Index: 2 -> Key: Star Wars: The Empire Strikes Back -> Value: Number Five
+Load factor: 0.8333333333333334 Hash: 3 -> Index: 3 -> Key: Star Wars: Attack of the Clones -> Value: Number Two
+Load factor: 0.8333333333333334 Hash: 4 -> Index: 4 -> Key: Star Wars: A New Hope -> Value: Number Four
+Load factor: 0.8333333333333334 Hash: 5 -> Index: 5 -> Key: Star Wars: Revenge of the Sith -> Value: Number Three
+key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.16666666666666666 Hash: 1 -> Index: 1 -> Key: A New Hope -> Value: Average
+key value bracket module (1)
+Load factor: 0.3333333333333333 Hash: 1 -> Index: 1 -> Key: A New Hope -> Value: Average
+Load factor: 0.3333333333333333 Hash: 2 -> Index: 2 -> Key: Empire Strikes Back -> Value: Excellent
+key value bracket module (1)
+key value bracket module (1)
+Load factor: 0.08333333333333333 Hash: 6 -> Index: 6 -> Key: Return of the Jedi -> Value: The Best
+key value bracket module (1)
+Load factor: 0.16666666666666666 Hash: 6 -> Index: 6 -> Key: Return of the Jedi -> Value: The Best
+Load factor: 0.16666666666666666 Hash: 7 -> Index: 7 -> Key: A New Hope -> Value: Average
+.
+
+Finished in 0.05493 seconds (files took 0.71314 seconds to load)
+8 examples, 0 failures
+
