@@ -1,0 +1,163 @@
+What's the Big-O of the following algorithm? 
+Submit your work and reasoning with your solution.
+
+  goodbye_world.rb
+  ----------------
+
+  def goodbye_world(n)
+    puts "Goodbye World! #{n}"
+  end
+
+  goodbye_world.rb has a constant Big-O (O(1)), the program executes in the 
+  same amount of time regardless of input size.
+
+/*****************************************************************************/
+What's the Big-O of the following algorithm? 
+Submit your work and reasoning with your solution.
+
+  find_largest.rb
+  ---------------
+
+  def find_largest(collection)
+    largest = collection[0]
+    collection.length.times do |i|
+      if collection[i] >= largest
+        largest = collection[i]
+      end
+    end
+    largest
+  end
+
+  find_largest.rb has a inear Big-O (O(n)), as the number of elements grow, the
+  number of operations linear search takes to execute and finish in the 
+  worst-case scenario grows linearly.
+
+/*****************************************************************************/
+What's the Big-O of the following algorithm? 
+Submit your work and reasoning with your solution.
+
+  find_largest_2D_array.rb
+  ------------------------
+
+  def find_largest(collection)
+    largest = collection[0][0]
+    collection.length.times do |i|
+      subcollection = collection[i]
+      subcollection.length.times do |j|
+        if subcollection[j] >= largest
+          largest = subcollection[j]
+        end
+      end
+    end
+    largest
+  end
+
+  find_largest_2D_array.rb has a Big-O notation of O(n), as the number of 
+  elements grow the number of iterations search takes to execute and finish
+  in the worst-case scenario.
+
+/*****************************************************************************/
+What's the Big-O of the following algorithm? 
+Submit your work and reasoning with your solution.
+
+  numbers_recurive.rb
+  -------------------
+
+  def numbers(n)
+    if (n == 0)
+      return 0
+    elsif (n == 1)
+      return 1
+    else
+      return numbers(n-1) + numbers(n-2)
+    end
+  end
+
+  numbers_recursive.rb has a Big-O notation of O(1), since each leaf in the 
+  recursion tree will always return 1 according to the solution given for 
+  the Fibonacci question found at https://stackoverflow.com/a/360773
+/*****************************************************************************/
+What's the Big-O of the following algorithm? 
+Submit your work and reasoning with your solution.
+
+  numbers_iterative.rb
+  --------------------
+
+  def iterative(n)
+    num1 = 0
+    num2 = 1
+
+    i = 0
+    while i < n-1
+      tmp = num1 + num2
+      num1 = num2
+      num2 = tmp
+      i+=1
+    end
+
+    num2
+  end
+
+  numbers_iterative.rb has a Big-O of O(n), the loop interations will increase
+  as n increases.
+/*****************************************************************************/
+What's the Big-O of the following algorithm? 
+Submit your work and reasoning with your solution.
+
+  sort.rb
+  -------
+
+  def sort(collection, from=0, to=nil)
+    if to == nil
+      # Sort the whole collection, by default
+      to = collection.count - 1
+    end
+
+    if from >= to
+      # Done sorting
+      return
+    end
+
+    # Take a pivot value, at the far left
+    pivot = collection[from]
+
+    # Min and Max pointers
+    min = from
+    max = to
+
+    # Current free slot
+    free = min
+
+    while min < max
+      if free == min # Evaluate collection[max]
+        if collection[max] <= pivot # Smaller than pivot, must move
+          collection[free] = collection[max]
+          min += 1
+          free = max
+        else
+          max -= 1
+        end
+      elsif free == max # Evaluate collection[min]
+        if collection[min] >= pivot # Bigger than pivot, must move
+          collection[free] = collection[min]
+          max -= 1
+          free = min
+        else
+          min += 1
+        end
+      else
+        raise "Inconsistent state"
+      end
+    end
+
+    collection[free] = pivot
+
+    sort collection, from, free - 1
+    sort collection, free + 1, to
+
+    collection
+  end
+
+  sort.rb has a Big-O notation of Θ(n^2), mainly due to the multiple numbers_recursive
+  calls according to the documentation found at the Khan Academy website
+  https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/analysis-of-quicksort
