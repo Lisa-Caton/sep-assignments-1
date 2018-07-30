@@ -10,13 +10,13 @@
 
 # Bloc Software Engineering Principles - Algorithms and Complexity
 
-- 01 Algorithms: Introduction
-- 02 Algorithms: Searching
-- 03 Algorithms: Sorting
-- 04 Complexity: Introduction
-- 05 Complexity: Determining Complexity
-- 06 Complexity: Improving Complexity
-- 07 Complexity: Complex Problems
+- 01 [Algorithms: Introduction](https://github.com/OTR500miles2go/sep-assignments/tree/master/02-algorithms-complexity/01-algorithms-introduction)
+- 02 [Algorithms: Searching](https://github.com/OTR500miles2go/sep-assignments/tree/master/02-algorithms-complexity/02-algorithms-searching)
+- 03 [Algorithms: Sorting](https://github.com/OTR500miles2go/sep-assignments/tree/master/02-algorithms-complexity/03-algorithms-sorting)
+- 04 [Complexity: Introduction](https://github.com/OTR500miles2go/sep-assignments/tree/master/02-algorithms-complexity/04-complexity-introduction)
+- 05 [Complexity: Determining Complexity](https://github.com/OTR500miles2go/sep-assignments/tree/master/02-algorithms-complexity/05-complexity-determining)
+- 06 [Complexity: Improving Complexity](https://github.com/OTR500miles2go/sep-assignments/tree/master/02-algorithms-complexity/06-complexity-improving)
+- 07 [Complexity: Complex Problems](https://github.com/OTR500miles2go/sep-assignments/tree/master/02-algorithms-complexity/07-complexity-problems)
 
 # Bloc Software Engineering Principles - Relational Database Fundamentals
 
