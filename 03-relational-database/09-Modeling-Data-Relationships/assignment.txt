@@ -1,0 +1,350 @@
+**Schema (PostgreSQL v9.6)**
+
+    CREATE TABLE guests (
+      "id"            SERIAL PRIMARY KEY,
+      "first_name"    VARCHAR(16),
+      "last_name"     VARCHAR(16),
+      "address"       VARCHAR(64),
+      "phone_number"  VARCHAR(16),
+      "email"         VARCHAR(25)
+    );
+    
+    CREATE TABLE rooms (
+      "room"          INTEGER,
+      "floor"         INTEGER,
+      "rate"          DECIMAL(13,4)
+    );
+    
+    CREATE TABLE bookings (
+      "id"			  INTEGER NOT NULL,
+      "guest_id"      INTEGER REFERENCES guests(id),
+      "room"          INTEGER,
+      "check_in"      DATE,
+      "check_out"     DATE,
+      PRIMARY KEY (id,guest_id)
+    );
+    
+    INSERT INTO guests
+      ("id",  "first_name",   "last_name",  "address",  "phone_number",   "email")
+    VALUES
+      (20180001, 'Andre',   'Young',      '2220 Colorado Ave, Santa Monica, CA 90404',        '123-456-7890',   'thechronic@drdre.com'),
+      (20180002, 'Calvin',  'Broadus Jr', '12530 Beatrice Street, Los Angeles, CA 90066',     '123-456-7890',   'doggystyle@snoopdogg.com'),
+      (20180003, 'Tupac',   'Shakur',     '1 Mighty Clouds, Heavens Gate, CA 91396',          '123-456-7890',   'alleyezonme@2pac.com'),
+      (20180004, 'O Shea',  'Jackson Sr', '16161 Ventura Boulevard #870. Encino, CA, 91436',  '123-456-7890',   'mostwanted@icecube.com'),
+      (20180005, 'Stanley', 'Burrell',     '7683 W Erb Way Tracy CA, 95304',                  '123-456-7890',   'toolegit@hammertime.com'),
+      (20180006, 'Artysia', 'GaydenNapper', '7905 North Crescent Blvd., Pennsauken, NJ 08110', '123-456-7890',  'selfish@googleplay.com');
+    
+    INSERT INTO rooms
+      ("room", "floor", "rate")
+    VALUES
+      (101, 3, 259.99),
+      (102, 3, 269.99),
+      (103, 3, 279.99),
+      (104, 3, 289.99),
+      (105, 3, 299.99),
+      (201, 4, 359.99),
+      (202, 4, 369.99),
+      (203, 4, 379.99),
+      (204, 4, 389.99),
+      (205, 4, 399.99),
+      (301, 5, 999.99),
+      (302, 5, 1099.99),
+      (303, 5, 2099.99);  
+      
+    INSERT INTO bookings
+      ("id", "guest_id",    "room",   "check_in",   "check_out")
+    VALUES
+      (1, 20180001, 303, '2018-01-03', '2018-01-23'),
+      (2, 20180001, 101, '2018-01-03', '2018-01-23'),
+      (3, 20180001, 102, '2018-01-03', '2018-01-23'),
+      (4, 20180001, 203, '2018-01-03', '2018-01-23'),
+      (5, 20180001, 204, '2018-01-03', '2018-01-23'),
+      (6, 20180001, 301, '2018-01-03', '2018-01-23'),
+      (7, 20180002, 201, '2018-08-01', NULL ),
+      (8, 20180002, 202, '2018-08-01', NULL ),
+      (9, 20180002, 203, '2018-08-01', NULL ),
+      (10, 20180002, 204, '2018-08-01', NULL ),
+      (11, 20180002, 205, '2018-08-01', NULL ),
+      (12, 20180003, 101, '1995-10-13', '1995-10-22'),
+      (13, 20180004, 302, '2018-08-20', NULL ),
+      (14, 20180005, 105, '2018-02-14', '2018-02-16'),
+      (15, 20180001, 204, '2018-10-03', NULL ),
+      (16, 20180001, 301, '2018-10-03', NULL ),
+      (17, 20180002, 201, '2018-09-18', NULL );
+
+---
+Exercises
+Please submit your answers to the following questions in the submission tab.
+
+1. Create a database for the model we built in the example. Create a SQL file 
+that creates the tables and inserts sample data (the questions below will help 
+you create the data). Write queries applying the following scenarios:
+  
+  Find a guest who exists in the database and has not booked a room.
+    **Query #1**
+
+        SELECT guests.first_name, guests.last_name
+            FROM guests 
+            LEFT JOIN bookings ON guests.id = bookings.guest_id
+            WHERE bookings.guest_id IS NULL;
+
+    | first_name | last_name    |
+    | ---------- | ------------ |
+    | Artysia    | GaydenNapper |
+
+  Find bookings for a guest who has booked two rooms for the same dates.
+    **Query #1**
+
+        SELECT 	guests.first_name, 
+                bookings.check_in, 
+                    COUNT(*) AS rooms_booked 
+            FROM bookings  
+            JOIN guests 
+            ON bookings.guest_id = guests.id 
+            GROUP BY 1, 2 
+            HAVING count(*) > 1;
+
+    | first_name | check_in                 | rooms_booked |
+    | ---------- | ------------------------ | ------------ |
+    | Andre      | 2018-01-03T00:00:00.000Z | 6            |
+    | Calvin     | 2018-08-01T00:00:00.000Z | 5            |
+    | Andre      | 2018-10-03T00:00:00.000Z | 2            |
+
+  Find bookings for a guest who has booked one room several times on different 
+  dates. 
+    **Query #1**
+
+        SELECT b1.room,
+            b1.guest_id,
+                b1.check_in,
+                b2.check_in
+        FROM	booking b1
+        INNER JOIN booking b2 
+          ON b1.room = b2.room 
+            AND b1.guest_id = b2.guest_id 
+            AND b1.check_in != b2.check_in
+        GROUP BY 1, 2, 3, 4 
+        HAVING b1.check_in < b2.check_in
+        ORDER BY 1, 2;
+
+    | room | guest_id | check_in                 | check_in                 |
+    | ---- | -------- | ------------------------ | ------------------------ |
+    | 201  | 20180002 | 2018-08-01T00:00:00.000Z | 2018-09-18T00:00:00.000Z |
+    | 204  | 20180001 | 2018-01-03T00:00:00.000Z | 2018-10-03T00:00:00.000Z |
+    | 301  | 20180001 | 2018-01-03T00:00:00.000Z | 2018-10-03T00:00:00.000Z |
+
+
+  Count the number of unique guests who have booked the same room.
+    **Query #1**
+
+        SELECT DISTINCT guests.first_name
+                FROM guests
+                JOIN bookings ON guests.id = bookings.guest_id
+                JOIN rooms ON bookings.room = rooms.room;
+
+    | first_name |
+    | ---------- |
+    | Andre      |
+    | Tupac      |
+    | Stanley    |
+    | Calvin     |
+    | O Shea     |
+
+    ---
+    **Query #2**
+
+        SELECT COUNT(*) AS "# of Guests Booked Same Room"
+            FROM (
+                SELECT DISTINCT guests.first_name
+                FROM guests
+                JOIN bookings ON guests.id = bookings.guest_id
+                JOIN rooms ON bookings.room = rooms.room
+            ) AS guests_in_same_room;
+
+    | # of Guests Booked Same Room |
+    | ---------------------------- |
+    | 5                            |
+
+
+2. Design a data model for students and the classes they have taken. The model 
+should include the students' grades for a given class.
+  Work through the questions from the example above.
+  
+  Document any assumptions you make about what data should be stored, what data
+  types should be used, etc., and include them in a text file.  
+  
+    FILE: Student.txt
+
+  Ask questions of your mentor in your next session if you are unsure about 
+  parts of your model.
+
+  Draw the model using the notation used in the checkpoint and submit a picture.
+  You can also use a tool like StarUML or quickdatabasediagrams.com if you choose.
+  
+    DESIGN: https://app.quickdatabasediagrams.com/#/schema/XnC0P4o2lEenKVcv9E7SGA
+
+
+3. Build a database for the students/classes data model. Create a SQL file that
+creates the tables and inserts sample data (the questions below will help 
+you create the data). Write queries for the following data:
+
+    CREATE TABLE students (
+      "student_id"    SERIAL PRIMARY KEY,
+      "first_name"    VARCHAR(16),
+      "last_name"     VARCHAR(16),
+      "address"       VARCHAR(64),
+      "phone_number"  VARCHAR(16),
+      "email"         VARCHAR(25)
+    );
+
+    CREATE TABLE courses (
+      "course_id"     SERIAL PRIMARY KEY,
+      "name"          VARCHAR(64),
+      "description"   VARCHAR(240)
+    );
+
+    CREATE TABLE grades (
+      "student_id"    INTEGER NOT NULL,
+      "course_id"     INTEGER NOT NULL,
+      "letter_grade"  VARCHAR(1),
+      "weight_grade"  DECIMAL(2,2)
+    );
+
+    INSERT INTO students 
+      ("student_id", "first_name",   "last_name",  "address",  "phone_number",   "email")
+    VALUES
+      (20180001, 'Andre',   'Young',      '2220 Colorado Ave, Santa Monica, CA 90404',        '123-456-7890',   'thechronic@drdre.com'),
+      (20180002, 'Calvin',  'Broadus Jr', '12530 Beatrice Street, Los Angeles, CA 90066',     '123-456-7890',   'doggystyle@snoopdogg.com'),
+      (20180003, 'Tupac',   'Shakur',     '1 Mighty Clouds, Heavens Gate, CA 91396',          '123-456-7890',   'alleyezonme@2pac.com'),
+      (20180004, 'O Shea',  'Jackson Sr', '16161 Ventura Boulevard #870. Encino, CA, 91436',  '123-456-7890',   'mostwanted@icecube.com'),
+      (20180005, 'Stanley', 'Burrell',     '7683 W Erb Way Tracy CA, 95304',                  '123-456-7890',   'toolegit@hammertime.com'),
+      (20180006, 'Artysia', 'GaydenNapper', '7905 North Crescent Blvd., Pennsauken, NJ 08110', '123-456-7890',  'selfish@googleplay.com');
+    
+    INSERT INTO courses 
+      ("course_id", "name", "description")
+    VALUES
+      (101, 'Introduction', 'How the internet works. Website basics. Basic developer tools and resources.'),
+      (102, 'HTML', 'HyperText Markup Language, used to create documents on the World Wide Web. HTML defines the structure and layout of a Web document by using a variety of tags and attributes.'),
+      (103, 'CSS', 'CSS, Cascading Style Sheets, describes how HTML elements are to be displayed. CSS saves a lot of work. It can control the layout of multiple web pages all at once. External stylesheets are stored in CSS files.'),
+      (104, 'JavaScript', 'JavaScript, an essential web technology along with HTML and CSS.  JavaScript usage has now extended to mobile app development, desktop app development, and game development.'),
+      (105, 'Essentials', 'Git, GitHub, Chrome, Heroku, Windows/Apple'),
+      (201, 'React', 'React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.'),
+      (202, 'Gatsby', 'Blazing-fast static site generator for React.'),
+      (203, 'Ten Projects', 'Build projects putting everything thus far to work. Master HTML/CSS/JavaScript building modern responsive websites typical of the work performed as a Front End Developer.');
+
+    INSERT INTO grades
+      ("student_id", "course_id", "letter_grade", "weight_grade")
+    VALUES
+      (20180001, 101, 'A',  4.00),
+      (20180001, 102, 'A',  4.00),
+      (20180001, 103, 'B',  3.00),
+      (20180001, 104, 'B',  3.00),
+      (20180001, 105, 'C',  2.00),
+      (20180001, 201, 'X',  0.00),
+      (20180002, 101, 'D',  1.00),
+      (20180002, 102, 'D',  1.00),
+      (20180002, 103, 'E',  0.01),
+      (20180002, 104, 'X',  0.00),
+      (20180003, 101, 'A',  4.00),
+      (20180003, 102, 'A',  4.00),
+      (20180003, 103, 'A',  4.00),
+      (20180003, 104, 'B',  3.00),
+      (20180003, 105, 'B',  3.00),
+      (20180003, 201, 'B',  3.00),
+      (20180003, 202, 'X',  0.00),
+      (20180004, 101, 'C',  2.00),
+      (20180004, 102, 'C',  2.00),
+      (20180004, 103, 'A',  4.00),
+      (20180004, 104, 'X',  0.00),
+      (20180005, 101, 'A',  4.00),
+      (20180005, 102, 'B',  3.00),
+      (20180005, 103, 'B',  3.00),
+      (20180005, 104, 'X',  0.00),
+      (20180006, 101, 'A',  4.00),
+      (20180006, 102, 'A',  4.00),
+      (20180006, 103, 'B',  3.00);
+
+
+  All students who have taken a particular class.
+    **Query #1**
+
+        SELECT s.first_name, s.last_name, c.name
+          FROM students AS s
+          JOIN grades  AS g 
+          ON  g.student_id = s.student_id
+          JOIN courses AS c
+          ON c.course_id = g.course_id
+          WHERE c.name = 'Introduction';
+
+    | first_name | last_name    | name         |
+    | ---------- | ------------ | ------------ |
+    | Andre      | Young        | Introduction |
+    | Calvin     | Broadus Jr   | Introduction |
+    | Tupac      | Shakur       | Introduction |
+    | O Shea     | Jackson Sr   | Introduction |
+    | Stanley    | Burrell      | Introduction |
+    | Artysia    | GaydenNapper | Introduction |
+
+  The number of each grade (using letter grades A-F) earned in a particular class.
+    **Query #1**
+
+        SELECT 	c.name, 
+                g.letter_grade, 
+                    count(g.letter_grade) AS grade_count
+                  FROM students AS s
+                  JOIN grades  AS g 
+                  ON  g.student_id = s.student_id
+                  JOIN courses AS c
+                  ON c.course_id = g.course_id
+          WHERE c.name = 'HTML'
+          GROUP BY 1, 2;
+
+    | name | letter_grade | grade_count |
+    | ---- | ------------ | ----------- |
+    | HTML | A            | 3           |
+    | HTML | B            | 1           |
+    | HTML | C            | 1           |
+    | HTML | D            | 1           |
+  
+  Class names and the total number of students who have taken each class in the list.
+    **Query #1**
+
+        SELECT 	c.name, count(*)
+        FROM courses AS c
+        
+        JOIN grades  AS g 
+        ON g.course_id = c.course_id
+        
+        JOIN students AS s
+        ON s.student_id = g.student_id 
+        
+        GROUP BY 1
+        ORDER BY 2 DESC;
+
+    | name         | count |
+    | ------------ | ----- |
+    | HTML         | 6     |
+    | Introduction | 6     |
+    | CSS          | 6     |
+    | JavaScript   | 5     |
+    | Essentials   | 2     |
+    | React        | 2     |
+    | Gatsby       | 1     |
+
+  The class taken by the largest number of students.
+    **Query #1**
+
+        SELECT 	c.name, 
+                COUNT(*) AS number_of_students        
+        FROM courses AS c 
+        JOIN grades  AS g  	ON g.course_id = c.course_id
+        JOIN students AS s	ON s.student_id = g.student_id 
+        GROUP BY 1
+        ORDER BY 2 DESC
+        LIMIT 3;
+
+    | name         | number_of_students |
+    | ------------ | ------------------ |
+    | Introduction | 6                  |
+    | CSS          | 6                  |
+    | HTML         | 6                  |

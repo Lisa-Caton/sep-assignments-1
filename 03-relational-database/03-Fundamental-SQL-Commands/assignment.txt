@@ -1,0 +1,179 @@
+Exercises
+Use the commands we have learned about to complete the following tasks and 
+submit the SQL statements in the submission tab. Real world examples must be 
+distinct from those used in the text.
+
+1. List the commands for adding, updating, and deleting data
+  INSERT INTO will add data, 
+  UPDATE will update data and 
+  DELETE FROM will delete data
+
+2. Explain the structure for each type of command.
+  The SQL INSERT INTO Statement is used to add new rows of data to a table 
+  in the database.
+  syntax: INSERT INTO TABLE_NAME (column1, column2, column3,...columnN)  
+          VALUES (value1, value2, value3,...valueN);
+          
+  The SQL UPDATE Query is used to modify the existing records in a table. 
+  You can use the WHERE clause with the UPDATE query to update the selected 
+  rows, otherwise all the rows would be affected.        
+  syntax: UPDATE table_name
+          SET column1 = value1, column2 = value2...., columnN = valueN
+          WHERE [condition];
+
+  The SQL DELETE Query is used to delete the existing records from a table. 
+  You can use the WHERE clause with a DELETE query to delete the selected 
+  rows, otherwise all the records would be deleted.
+  syntax: DELETE FROM table_name
+          WHERE [condition];
+
+3. What are some the data types that can be used in tables? Give a real 
+  world example of each. 
+    The item description on the Kroger receipt is a text data type.
+    The date of my post last month on Facebook is a date and time data type.
+    My medical record number on myChart is an integer data type.
+  
+4. Think through how to create a new table to hold a list of people invited 
+to a wedding. This table needs to have first and last name, whether they sent 
+in their RSVP, the number of guests they are bringing, and the number of 
+meals (1 for adults and 1/2 for children).
+  (....thinking....)
+
+  Which data type would you use to store each of the following 
+  pieces of information?
+    First and last name. [ text ]
+    Whether they sent in their RSVP. [ bool ]
+    Number of guests. [ integer ]
+    Number of meals. [ numeric(p, s) ]
+    
+  Write a command that makes the table to track the wedding.
+    CREATE TABLE wedding (
+      first_name text,
+      last_name text,
+      rsvp bool,
+      guest integer,
+      meals numeric(5, 2)
+    );
+    
+  Using the table we just created, write a command that adds a column to track 
+  whether they were sent a thank you card.
+    ALTER TABLE wedding ADD COLUMN card bool;
+    
+  You have decided to move the data about the meals to another table, so write 
+  a command to remove the column storing the number meals from the wedding table.
+    ALTER TABLE wedding DROP COLUMN meals;
+  
+  The guests are going to need a place to sit at the reception, so write 
+  a command that adds a column for table number.
+    ALTER TABLE wedding ADD COLUMN table integer;
+    
+  The wedding is over and we do not need to keep this information, so write 
+  a command that deletes the wedding table from the database.
+    DROP TABLE wedding;
+  
+5. Write a command to make a new table to hold the books in a library with 
+the columns ISBN, title, author, genre, publishing date, number of copies, 
+and available copies.
+  CREATE TABLE library (
+    isbn integer, 
+    title text, 
+    author text, 
+    genre text, 
+    publishing_date date, 
+    copies integer,  
+    available_copies integer
+  );
+
+  Find three books and add their information to the table.
+    INSERT INTO library (isbn, 
+                        title, 
+                        author, 
+                        genre, 
+                        publishing_date, 
+                        copies, 
+                        available_copies)
+    VALUES
+    (0446357170, 'Chances', 'Jackie Collins', 
+      'contemporary fiction', 1991-08-01, 30870, 6845),
+    (0671808826, 'The Lonely Lady', 'Harold Robbins', 
+      'contemporary fiction', 1977-03-01, 308170, 45),
+    (0312987013, 'Minion (Vampire Huntress Legends)', 'L. A. Banks', 
+      'romance', 2004-04-29, 9215, 997);
+  
+  Someone has just checked out one of the books. Change the available copies 
+  column to 1 fewer.
+    UPDATE library SET available_copies=996 
+      WHERE isbn=0312987013;
+      
+  Now one of the books has been added to the banned books list. Remove it 
+  from the table.
+    DELETE FROM library where isbn=0671808826;
+
+6. Write a command to make a new table to hold spacecrafts. Information 
+should include id, name, year launched, country of origin, a brief description 
+of the mission, orbiting body, if it is currently operating, and approximate 
+miles from Earth. 
+  CREATE TABLE spacecraft (
+    id integer, 
+    name text, 
+    launch_year integer, 
+    country_launched text, 
+    mission text, 
+    orbiting_location text, 
+    mission_completed date, 
+    distance_from_earth float
+  );
+
+  Add 3 non-Earth-orbiting satellites to the table.
+    INSERT INTO spacecraft (id, 
+                            name, 
+                            launch_year, 
+                            country_launched, 
+                            mission, 
+                            orbiting_location, 
+                            mission_completed, 
+                            distance_from_earth)
+    VALUES
+    (10, 'U S S Enterprise', 1966, 'United Federation', 
+      'To boldly go where no man has gone before.', 'Sector 90210', 1969-01-09, 0),
+    (13, 'Nostromo', 1979, 'East Wayland', 
+      'Investigate potential distress during travel.', 'LV-426', 0000-00-00, 7.054e+13),
+    (67, 'Max', 1986, 'Phaelon', 
+      'Collect galatic specimens, analyze, return specimens.', 'Earth', 1986-08-01, 99999);
+    
+  Remove one of the satellites from the table since it has just been crashed into the planet.
+    DELETE FROM spacecrafts WHERE id=67;
+  
+  Edit another satellite because it is no longer operating and change the value to reflect that.
+    UPDATE spacecrafts SET mission_completed=2018-08-19 WHERE id-13;
+
+7. Write a command to make a new table to hold the emails in your inbox. This 
+table should include an id, the subject line, the sender, any additional 
+recipients, the body of the email, the timestamp, whether or not it’s been read,
+and the id of the email chain it’s in. 
+  CREATE TABLE inbox (
+    id integer, 
+    subject text, 
+    from text, 
+    recipients text, 
+    email text, 
+    timestamp date, 
+    read bool, 
+    chain_id integer
+  );
+
+  Add 3 new emails to the inbox.
+    INSERT INTO inbox 
+      (id, subject, from ,recipients, email, timestamp, read, chain_id)
+    VALUES
+    (1, 'Prince', 'love4OneAnother@npg.com', 'michaeljackson@beatit.com','There are theives in the temple tonight', 2001-10-13, true, 17),
+    (2, 'Aretha', 'angel@detroit.com', 'whitneyhouston@sing.com', 'A few stormy moments is all that we share', 2003-10-13, false, 27),
+    (3, 'Gerald', 'lavert@ojay.com', 'marvingaye@prideandjoy.com', 'Baby hold on to me', 2006-10-13, true, 37);
+    
+  You’ve just deleted one of the emails, so write a command to remove the row from the inbox table.
+    DELETE FROM inbox where id=2;
+    
+  You started reading an email but just heard a crash in another room. Mark 
+  the email as unread before investigating, so you can come back to it later.
+    UPDATE inbox SET read=false WHERE id=1;
+

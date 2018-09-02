@@ -1,0 +1,106 @@
+Student
+-
+StudentID PK int
+Name string
+Address1 string
+Address2 NULL string
+Address3 NULL string
+email string
+
+Courses
+-
+CourseID PK int
+Name string 
+Description string
+
+Grades
+-
+StudentID FK >- Student.StudentID
+CourseID FK >- Courses.CourseID
+Letter_grade char
+weight_grade decimal
+
+
+
+    CREATE TABLE students (
+      "student_id"    SERIAL PRIMARY KEY,
+      "first_name"    VARCHAR(16),
+      "last_name"     VARCHAR(16),
+      "address"       VARCHAR(64),
+      "phone_number"  VARCHAR(16),
+      "email"         VARCHAR(25)
+    );
+
+    CREATE TABLE courses (
+      "course_id"     SERIAL PRIMARY KEY,
+      "name"          VARCHAR(64),
+      "description"   VARCHAR(240)
+    );
+
+    CREATE TABLE grades (
+      "student_id"    INTEGER NOT NULL,
+      "course_id"     INTEGER NOT NULL,
+      "letter_grade"  VARCHAR(1),
+      "weight_grade"  DECIMAL(2,3)
+    );
+
+    INSERT INTO students 
+      ("student_id", "first_name",   "last_name",  "address",  "phone_number",   "email")
+    VALUES
+      (20180001, 'Andre',   'Young',      '2220 Colorado Ave, Santa Monica, CA 90404',        '123-456-7890',   'thechronic@drdre.com'),
+      (20180002, 'Calvin',  'Broadus Jr', '12530 Beatrice Street, Los Angeles, CA 90066',     '123-456-7890',   'doggystyle@snoopdogg.com'),
+      (20180003, 'Tupac',   'Shakur',     '1 Mighty Clouds, Heavens Gate, CA 91396',          '123-456-7890',   'alleyezonme@2pac.com'),
+      (20180004, 'O Shea',  'Jackson Sr', '16161 Ventura Boulevard #870. Encino, CA, 91436',  '123-456-7890',   'mostwanted@icecube.com'),
+      (20180005, 'Stanley', 'Burrell',     '7683 W Erb Way Tracy CA, 95304',                  '123-456-7890',   'toolegit@hammertime.com'),
+      (20180006, 'Artysia', 'GaydenNapper', '7905 North Crescent Blvd., Pennsauken, NJ 08110', '123-456-7890',  'selfish@googleplay.com');
+    
+    INSERT INTO courses 
+      ("course_id", "name", "description")
+    VALUES
+      (101, 'Introduction', 'How the internet works. Website basics. Basic developer tools and resources.'),
+      (102, 'HTML', 'HyperText Markup Language, used to create documents on the World Wide Web. HTML defines the structure and layout of a Web document by using a variety of tags and attributes.'),
+      (103, 'CSS', 'CSS, Cascading Style Sheets, describes how HTML elements are to be displayed. CSS saves a lot of work. It can control the layout of multiple web pages all at once. External stylesheets are stored in CSS files.'),
+      (104, 'JavaScript', 'JavaScript, an essential web technology along with HTML and CSS.  JavaScript usage has now extended to mobile app development, desktop app development, and game development.'),
+      (105, 'Essentials', 'Git, GitHub, Chrome, Heroku, Windows/Apple'),
+      (201, 'React', 'React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.'),
+      (202, 'Gatsby', 'Blazing-fast static site generator for React.'),
+      (203, 'Ten Projects', 'Build projects putting everything thus far to work. Master HTML/CSS/JavaScript building modern responsive websites typical of the work performed as a Front End Developer.');
+
+    INSERT INTO grades
+      ("student_id", "course_id", "letter_grade", "weight_grade")
+    VALUES
+      (20180001, 101, 'A', 4.00),
+      (20180001, 102, 'A', 4.00),
+      (20180001, 103, 'B', 3.00),
+      (20180001, 104, 'B', 3.00),
+      (20180001, 105, 'C', 2.00),
+      (20180001, 201, 'C', 2.00),
+      (20180002, 101, 'D', 1.00),
+      (20180002, 102, 'D', 1.00),
+      (20180002, 103, 'E', 0.00),
+      (20180002, 104, 'E', 0.00),
+      (20180003, 101, 'A', 4.00),
+      (20180003, 102, 'A', 4.00),
+      (20180003, 103, 'A', 4.00),
+      (20180003, 104, 'B', 3.00),
+      (20180003, 105, 'B', 3.00),
+      (20180003, 106, 'B', 3.00),
+      (20180003, 107, 'C', 2.00),
+      (20180004, 101, 'C', 2.00),
+      (20180004, 102, 'C', 2.00),
+      (20180004, 103, 'A', 4.00),
+      (20180004, 104, 'A', 4.00),
+      (20180005, 101, 'A', 4.00),
+      (20180005, 102, 'B', 3.00),
+      (20180005, 103, 'B', 3.00),
+      (20180005, 104, 'B', 3.00),
+      (20180006, 101, 'A', 4.00),
+      (20180006, 102, 'A', 4.00),
+      (20180006, 103, 'B', 3.00);
+
+
+
+
+
+
+

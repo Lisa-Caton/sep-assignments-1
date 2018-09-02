@@ -1,0 +1,407 @@
+Exercises
+Please submit your answers to the following questions in the submission tab.
+
+NOTE: Real world examples must be your own and not based on the text or 
+previous assignments.
+
+1. How do you find related data that is held in two separate data tables?
+  Combine the tables using a SQL JOIN clause.
+
+
+2. Explain, in your own words, the difference between a CROSS JOIN, 
+INNER JOIN, LEFT OUTER JOIN, RIGHT OUTER JOIN, and FULL OUTER JOIN. 
+Give a real world example for each.
+
+  CROSS JOIN gives all combination between tables,
+  INNER JOIN gives matching combinations only using a shared key,
+  LEFT OUTER JOIN a.k.a LEFT JOIN gives NULL values for the unmatched 
+  right side table rows, 
+  RIGHT OUTER JOIN a.k.a RIGHT JOIN gives NULL values for the unmatched 
+  left side table rows,
+  FULL OUTER JOIN gives NULL values for any unmatched rows on either side.
+
+  CROSS JOIN, The VP in Deerfield, IL has a need to know if each store is 
+  stocked with each Walgreens brand item:  
+    SELECT *
+    FROM stores
+    CROSS JOIN walgreens_brands; 
+  
+  INNER JOIN, The Accounting VP needs to know supplier contact information
+  for customers with amount and payment_date records:
+    SELECT
+      customer.customer_id,
+      customer.first_name,
+      customer.last_name,
+      customer.email,
+      payment.amount,
+      payment.payment_date
+    FROM
+      customer
+    INNER JOIN payment 
+    ON payment.customer_id = customer.customer_id;
+
+  LEFT OUTER JOIN, The Accounting manager has to have all the suppliers
+  contact information and the payment amount and payment_date if it's 
+  available:
+    SELECT
+      customer.customer_id,
+      customer.first_name,
+      customer.last_name,
+      customer.email,
+      payment.amount,
+      payment.payment_date
+    FROM
+      customer
+    LEFT OUTER JOIN payment 
+    ON payment.customer_id = customer.customer_id;
+
+  RIGHT OUTER JOIN, The Accounting manager also has to have all the 
+  payment amount and payment_date with or without matching customer 
+  information:
+    SELECT
+      customer.customer_id,
+      customer.first_name,
+      customer.last_name,
+      customer.email,
+      payment.amount,
+      payment.payment_date
+    FROM
+      customer
+    RIGHT OUTER JOIN payment 
+    ON payment.customer_id = customer.customer_id;  
+
+  FULL OUTER JOIN, The Human Resource manager needs to know each employee 
+  name and department, including employees with no department and departments 
+  with no employees:
+    SELECT
+      employee_name,
+      department_name
+    FROM
+      employees e
+    FULL OUTER JOIN departments d 
+    ON d.department_id = e.department_id;
+
+
+3. Define primary key and foreign key. Give a real world example for each.
+  A primary key is like a social security number, it's sole purpose is
+  to provide a way to identify each row in the table. A foreign key is equal
+  to the primary key but it's located in another table and used to map back
+  to the table row containing the primary key.
+
+  At the beginning of the year the Accounting department combines the 
+  employee table (primary key = employee_id) with the 
+  earnings table (foreign key = employee_id) to print W-2 statements.  
+
+
+4. Define aliasing.
+  Aliasing is a simpler way to identify table names.  Customer can be
+  aliased as C or c.
+
+
+5. Change this query so that you are using aliasing:
+  SELECT professor.name, compensation.salary, compensation.vacation_days FROM professor 
+  JOIN compensation 
+  ON professor.id = compensation.professor_id;
+
+  SELECT p.name, c.salary, c.vacation_days 
+  FROM professor AS p
+  JOIN compensation AS c
+  ON p.id = c.professor_id;
+
+
+6. Why would you use a NATURAL JOIN? Give a real world example.
+  Use a NATURAL JOIN to get all the unique columns from two tables with one 
+  or more pairs of identically named columns with the same data type.
+
+  An U-Haul store has a stock table with columns:
+    stock_id integer,
+    make text,
+    model text,
+    in_service date
+
+  and a maintenance table with columns:
+    last_service_date date,
+    last_description text,
+    next_service_date date,
+    next_description text,
+    stock_id integer
+
+  SELECT * 
+  FROM stock
+  NATURAL JOIN maintenance;
+
+  Output will be columns:
+    stock_id, make, model, in_service, last_service_date, last_description, next_service_date, next_description
+
+
+7. Using this Employee schema and data, write queries to find the following information:
+  All employees with their shifts if they have any. Also include any unscheduled shifts.
+
+    SELECT *
+    FROM shifts
+    LEFT OUTER JOIN scheduled_shifts 
+    ON scheduled_shifts.shift_id = shifts.id
+    ORDER BY scheduled_shifts.employee_id;
+
+
+8. Using this Adoption schema and data, please write queries to retrieve the 
+following information and include the results:
+
+  All volunteers. If the volunteer is fostering a dog, include each dog as well.
+    **Query #1**
+
+        SELECT * 
+        FROM volunteers AS v
+        LEFT OUTER JOIN dogs AS d
+        ON v.foster_dog_id = d.id
+        ORDER BY v.id;
+
+    | id  | first_name | last_name  | address                    | phone_number | available_to_foster | foster_dog_id | id    | name      | gender | age | weight | breed              | intake_date              | in_foster |
+    | --- | ---------- | ---------- | -------------------------- | ------------ | ------------------- | ------------- | ----- | --------- | ------ | --- | ------ | ------------------ | ------------------------ | --------- |
+    | 1   | Albus      | Dumbledore | 99 Godric's Hollow         | 843-746-3649 | false               |               |       |           |        |     |        |                    |                          |           |
+    | 2   | Rubeus     | Hagrid     | 1 Edge of Forbidden Forest | 256-667-2378 | true                | 10002         | 10002 | Munchkin  | F      | 0   | 8      | dachsund chihuahua | 2017-01-13T00:00:00.000Z |           |
+    | 3   | Remus      | Lupin      | 12 Grimmauld Place         | 627-283-3771 | true                |               |       |           |        |     |        |                    |                          |           |
+    | 4   | Sirius     | Black      | 12 Grimmauld Place         | 878-666-4663 | true                |               |       |           |        |     |        |                    |                          |           |
+    | 5   | Marjorie   | Dursley    | 1990 Next Door to Fubster  | 463-528-2253 | true                | 10006         | 10006 | Marmaduke | M      | 7   | 150    | great dane         | 2016-03-22T00:00:00.000Z |           |
+
+  The cat's name, adopter's name, and adopted date for each cat adopted within 
+  the past month to be displayed as part of the "Happy Tail" social media promotion 
+  which posts recent successful adoptions.
+    **Query #1**
+
+        SELECT 	a.first_name, 
+                a.last_name, 
+                ca.date, 
+                c.name
+            FROM cat_adoptions AS ca
+            JOIN cats AS c
+            ON c.id = ca.cat_id
+            JOIN adopters AS a
+            ON a.id = ca.adopter_id
+            WHERE ca.date > CURRENT_DATE - INTERVAL '30 DAYS';
+
+    | first_name | last_name | date                     | name     |
+    | ---------- | --------- | ------------------------ | -------- |
+    | Arabella   | Figg      | 2018-08-06T00:00:00.000Z | Mushi    |
+    | Argus      | Filch     | 2018-08-11T00:00:00.000Z | Victoire |
+
+  Adopters who have not yet chosen a dog to adopt and generate all possible combinations 
+  of adopters and available dogs.
+    **Query #1**
+
+        SELECT 	adopters.id AS adopter_id, 
+                adopters.first_name, 
+                adopters.last_name, 
+                dogs.id AS dogs_id, 
+                dogs.name AS dogs_name
+            FROM adopters
+            FULL OUTER JOIN dog_adoptions 
+            ON dog_adoptions.adopter_id = adopters.id
+            CROSS JOIN dogs
+            WHERE dog_adoptions.adopter_id IS NULL AND 
+              dogs.id NOT IN (
+                  SELECT dog_adoptions.dog_id 
+                  FROM dog_adoptions)
+            ORDER BY adopters.id, dogs.id;
+
+    | adopter_id | first_name | last_name | dogs_id | dogs_name |
+    | ---------- | ---------- | --------- | ------- | --------- |
+    | 1          | Hermione   | Granger   | 10001   | Boujee    |
+    | 1          | Hermione   | Granger   | 10002   | Munchkin  |
+    | 1          | Hermione   | Granger   | 10003   | Lassie    |
+    | 1          | Hermione   | Granger   | 10004   | Marley    |
+    | 1          | Hermione   | Granger   | 10006   | Marmaduke |
+    | 2          | Arabella   | Figg      | 10001   | Boujee    |
+    | 2          | Arabella   | Figg      | 10002   | Munchkin  |
+    | 2          | Arabella   | Figg      | 10003   | Lassie    |
+    | 2          | Arabella   | Figg      | 10004   | Marley    |
+    | 2          | Arabella   | Figg      | 10006   | Marmaduke |
+  
+  Lists of all cats and all dogs who have not been adopted.
+    **Query #1**
+
+        SELECT 	cats.id AS cat_id, 
+                cats.name AS cat_name, 
+                cat_adoptions.adopter_id
+            FROM cats
+            LEFT OUTER JOIN cat_adoptions 
+            ON cats.id = cat_adoptions.cat_id
+            WHERE cat_adoptions.adopter_id IS NULL;
+
+    | cat_id | cat_name | adopter_id |
+    | ------ | -------- | ---------- |
+    | 2      | Seashell |            |
+    | 5      | Nala     |            |
+
+    ---
+    **Query #2**
+
+        SELECT 	dogs.id AS dog_id, 
+                dogs.name AS dog_name, 
+                dog_adoptions.adopter_id
+            FROM dogs
+            LEFT OUTER JOIN dog_adoptions 
+            ON dogs.id = dog_adoptions.dog_id
+            WHERE dog_adoptions.adopter_id IS NULL;
+
+    | dog_id | dog_name  | adopter_id |
+    | ------ | --------- | ---------- |
+    | 10002  | Munchkin  |            |
+    | 10001  | Boujee    |            |
+    | 10003  | Lassie    |            |
+    | 10004  | Marley    |            |
+    | 10006  | Marmaduke |            |
+  
+  Volunteers who are available to foster. If they currently are fostering a dog, 
+  include the dog. Also include all dogs who are not currently in foster homes.
+    **Query #1**
+
+        SELECT 	v.id AS volunteer_id, 
+                v.first_name, 
+                    v.last_name, 
+                    v.available_to_foster, 
+                    v.foster_dog_id, 
+                    d.name AS dog_name
+            FROM volunteers AS v
+            FULL OUTER JOIN dogs AS d 
+            ON d.id = v.foster_dog_id
+            WHERE v.available_to_foster IS true OR d.id IS NOT NULL
+            ORDER BY 1;
+
+    | volunteer_id | first_name | last_name | available_to_foster | foster_dog_id | dog_name  |
+    | ------------ | ---------- | --------- | ------------------- | ------------- | --------- |
+    | 2            | Rubeus     | Hagrid    | true                | 10002         | Munchkin  |
+    | 3            | Remus      | Lupin     | true                |               |           |
+    | 4            | Sirius     | Black     | true                |               |           |
+    | 5            | Marjorie   | Dursley   | true                | 10006         | Marmaduke |
+    |              |            |           |                     |               | Boujee    |
+    |              |            |           |                     |               | Rosco     |
+    |              |            |           |                     |               | Lassie    |
+    |              |            |           |                     |               | Marley    |
+
+  
+  The name of the person who adopted Rosco.
+    **Query #1**
+
+        SELECT 	adopter_id, 
+                adopters.first_name, 
+                adopters.last_name, 
+                dogs.name AS dog_name
+            FROM dog_adoptions
+            JOIN adopters 
+            ON adopters.id = dog_adoptions.adopter_id
+            JOIN dogs 
+            ON dogs.id = dog_adoptions.dog_id
+            WHERE dogs.name = 'Rosco';
+
+    | adopter_id | first_name | last_name | dog_name |
+    | ---------- | ---------- | --------- | -------- |
+    | 3          | Argus      | Filch     | Rosco    |
+
+
+9. Using this Library schema and data, write queries applying the following scenarios:
+
+  To determine if the library should buy more copies of a given book, please provide the 
+  names and position, in order, of all of the patrons with a hold (request for a book 
+  with all copies checked out) on "Advanced Potion-Making".
+    **Query #1**
+
+        SELECT 	patrons.name, 
+                holds.rank, 
+                books.title
+            FROM holds
+            LEFT OUTER JOIN patrons 
+            ON patrons.id = holds.patron_id
+            LEFT OUTER JOIN books 
+            ON books.isbn = holds.isbn
+            WHERE books.title = 'Advanced Potion-Making'
+            ORDER BY 2;
+
+    | name           | rank | title                  |
+    | -------------- | ---- | ---------------------- |
+    | Terry Boot     | 1    | Advanced Potion-Making |
+    | Cedric Diggory | 2    | Advanced Potion-Making |
+
+  Make a list of all book titles and denote whether or not a copy of that book is 
+  checked out.
+    **Query #1**
+
+        SELECT 	books.title, 
+                transactions.checked_out_date,
+                transactions.checked_in_date
+            FROM books
+            INNER JOIN transactions 
+            ON transactions.isbn = books.isbn
+            order by 1, 2;
+
+    | title                                   | checked_out_date         | checked_in_date          |
+    | --------------------------------------- | ------------------------ | ------------------------ |
+    | Advanced Potion-Making                  | 2012-08-25T00:00:00.000Z | 2012-08-26T00:00:00.000Z |
+    | Advanced Potion-Making                  | 2018-08-23T00:00:00.000Z |                          |
+    | Fantastic Beasts and Where to Find Them | 2012-08-25T00:00:00.000Z | 2012-08-26T00:00:00.000Z |
+    | Fantastic Beasts and Where to Find Them | 2018-08-19T00:00:00.000Z | 2018-08-22T00:00:00.000Z |
+    | Fantastic Beasts and Where to Find Them | 2018-08-23T00:00:00.000Z | 2018-08-25T00:00:00.000Z |
+    | Fantastic Beasts and Where to Find Them | 2018-08-25T00:00:00.000Z |                          |
+    | Hogwarts: A History                     | 2012-08-25T00:00:00.000Z | 2012-08-26T00:00:00.000Z |
+
+  In an effort to learn which books take longer to read, the librarians would like you 
+  to create a list of average checked out time by book name in the past month.
+    **Query #1**
+
+        SELECT 	books.title, 
+                AVG(transactions.checked_in_date - transactions.checked_out_date)
+            FROM books
+            LEFT OUTER JOIN transactions 
+            ON transactions.isbn = books.isbn
+            WHERE transactions.checked_out_date > CURRENT_DATE - INTERVAL '30 DAYS' AND transactions.checked_in_date IS NOT NULL
+            GROUP BY books.title;
+
+    | title                                   | avg                |
+    | --------------------------------------- | ------------------ |
+    | Fantastic Beasts and Where to Find Them | 2.5000000000000000 |
+
+  In order to learn which items should be retired, make a list of all books that have 
+  not been checked out in the past 5 years.
+    **Query #1**
+
+        SELECT 	books.title, 
+                transactions.checked_out_date
+            FROM books
+            LEFT OUTER JOIN transactions 
+            ON transactions.isbn = books.isbn
+            GROUP BY books.title, books.isbn, transactions.checked_out_date
+            HAVING transactions.checked_out_date < CURRENT_DATE - INTERVAL '5 YEARS';
+
+    | title                                   | checked_out_date         |
+    | --------------------------------------- | ------------------------ |
+    | Fantastic Beasts and Where to Find Them | 2012-08-25T00:00:00.000Z |
+    | Advanced Potion-Making                  | 2012-08-25T00:00:00.000Z |
+    | Hogwarts: A History                     | 2012-08-25T00:00:00.000Z |
+
+  List all of the library patrons. If they have one or more books checked out, 
+  correspond the books to the patrons.
+    **Query #1**
+
+        SELECT 	p.id, 
+                p.name, 
+                t.isbn, 
+                b.title, 
+                t.checked_out_date, 
+                t.checked_in_date
+            FROM patrons AS p
+            RIGHT OUTER JOIN transactions AS t 
+            ON p.id = t.patron_id
+            RIGHT OUTER JOIN books AS b 
+            ON b.isbn = t.isbn
+            ORDER BY p.id;
+
+    | id  | name             | isbn       | title                                   | checked_out_date         | checked_in_date          |
+    | --- | ---------------- | ---------- | --------------------------------------- | ------------------------ | ------------------------ |
+    | 1   | Hermione Granger | 3458400871 | Fantastic Beasts and Where to Find Them | 2018-08-23T00:00:00.000Z | 2018-08-25T00:00:00.000Z |
+    | 1   | Hermione Granger | 1840918626 | Hogwarts: A History                     | 2012-08-25T00:00:00.000Z | 2012-08-26T00:00:00.000Z |
+    | 2   | Terry Boot       | 9136884926 | Advanced Potion-Making                  | 2018-08-23T00:00:00.000Z |                          |
+    | 2   | Terry Boot       | 3458400871 | Fantastic Beasts and Where to Find Them | 2012-08-25T00:00:00.000Z | 2012-08-26T00:00:00.000Z |
+    | 3   | Padma Patil      | 3458400871 | Fantastic Beasts and Where to Find Them | 2018-08-19T00:00:00.000Z | 2018-08-22T00:00:00.000Z |
+    | 4   | Cho Chang        | 9136884926 | Advanced Potion-Making                  | 2012-08-25T00:00:00.000Z | 2012-08-26T00:00:00.000Z |
+    | 5   | Cedric Diggory   | 3458400871 | Fantastic Beasts and Where to Find Them | 2018-08-25T00:00:00.000Z |                          |
+

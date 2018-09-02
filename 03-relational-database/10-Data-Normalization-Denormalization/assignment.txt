@@ -1,0 +1,100 @@
+Exercises
+Please submit your answers to the following questions in the submission tab.
+
+Real world examples must be your own and not based on the text or previous 
+assignments.
+
+1. In your own words, explain the benefits of normalization. Include a 
+real-world scenario where normalization is necessary.
+  One benefit is the reduction or elimination of redundant data.  Any hospital
+  would benefit from patient record data normalization.  As the patient moves 
+  within different areas the patient doesn't have to give basic information to 
+  each department.  Another benefit is improved data integrity.  With the 
+  hospital example: a patient can alert her Primary Care physician or her 
+  Oncologist about a change in insurance benefits without having to notify
+  Medical Records, Billing and other players.  
+
+2. List and explain the different normal forms and how they relate to one 
+another, with regard to your real-world scenario in the first question.
+  1NF :  no table contains multiple values.  If a patient has multiple 
+  insurance carriers, each one will be listed separately.
+  2NF :  make certain the non-key attributes are dependent on the subset 
+  of the primary key and the table is 1NF compliant.  The DNR arrtibute 
+  has no relation to the patient billing record and should not appear 
+  in the billing table.
+  3NF :  make certain the table is 2NF compliant and transitive functional
+  dependencies of non-prime attributes don't exist. Using the hospital, the 
+  front desk receptionist and the cafeteria need the patient room number
+  attribute, the front_desk table should not contain attributes from the 
+  meal_prep table other than patient_room_number.
+
+3. This student_records table contains students and their grades in different 
+subjects. The schema is already in first normal form (1NF). Convert this 
+schema to the third normal form (3NF) using the techniques you learned 
+in this checkpoint.
+    **Schema (PostgreSQL v9.6)**
+
+            CREATE TABLE student_records (
+              "student_id"     	INTEGER,
+              "student_email"  	VARCHAR(24),
+              "student_name"   	VARCHAR(9)
+            );
+        
+            CREATE TABLE professor_records (
+              "id"           		INTEGER,
+              "professor_id"   	INTEGER,
+              "professor_name" 	VARCHAR(9)
+            );
+        
+            CREATE TABLE student_grades (
+              "id"       		    INTEGER,
+              "subject"        	VARCHAR(11),
+              "grade"          	VARCHAR(1)
+            );
+                
+            INSERT INTO student_records
+                ("student_id", "student_email",            "student_name")
+            VALUES                                                                                                                                                 
+                ( 1,           'john.b20@hogwarts.edu',    'John B'),
+                ( 2,           'sarah.s20@hogwarts.edu',   'Sarah S'),
+                ( 3,           'martha.l20@hogwarts.edu',  'Martha L'),
+                ( 4,           'james.g20@hogwarts.edu',   'James G'),
+                ( 5,           'stanley.p20@hogwarts.edu', 'Stanley P');
+        
+            INSERT INTO professor_records
+                ("id", "professor_id", "professor_name")
+            VALUES           
+                ( 1,  2,             'William C'),
+                ( 2,  2,             'William C'),
+                ( 3,  1,             'Natalie M'),
+                ( 4,  3,             'Mark W'),
+                ( 5,  1,             'Natalie M');
+        
+            INSERT INTO student_grades
+                ("id", "subject",     "grade")
+            VALUES 
+                ( 1,      'Philosophy',  'A'),
+                ( 2,      'Philosophy',  'C'),
+                ( 3,      'Economics',   'A'),
+                ( 4,      'Mathematics', 'B'),
+                ( 5,      'Economics',   'B');
+
+4. In your own words, explain the potential disadvantages of normalizing the 
+data above. What are its trade-offs? Submit your findings in the submission 
+table and discuss them with your mentor in your next session.
+  The runtime is a bit slower and now we have to use join statements to
+  query the tables.
+
+5. Looking at the tables you have normalized. If you need to denormalize to 
+improve query performance or speed up reporting, how would you carry out 
+denormalization for this database design? Submit potential strategies in 
+the submission tab and discuss them with your mentor in your next session.
+  I'd include the professor_name to the student_grades table to eliminate
+  that join to save time.
+
+6. Explore the trade-offs between data normalization and denormalization in this 
+scenario, submit your findings in the submission tab, and discuss them with 
+your mentor in your next session.
+  In this scenario performance may not out weigh the ease of maintaining the code.
+  The industry is not one where there's a danger of losing a sale because the 
+  site was too slow and the customer went elsewhere.
