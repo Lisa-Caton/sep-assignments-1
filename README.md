@@ -20,18 +20,18 @@
 
 # Bloc Software Engineering Principles - Relational Database Fundamentals
 
-- 01 Databases: Introduction
-- 02 Installing and Using Relational Databases
-- 03 Fundamental SQL Commands
+- 01 [Databases: Introduction](https://github.com/OTR500miles2go/sep-assignments/tree/master/03-relational-database/01-database-introduction)
+- 02 [Installing and Using Relational Databases](https://github.com/OTR500miles2go/sep-assignments/tree/master/03-relational-database)
+- 03 [Fundamental SQL Commands](https://github.com/OTR500miles2go/sep-assignments/tree/master/03-relational-database/03-Fundamental-SQL-Commands)
 - 04 Quiz
-- 05 Operators in SELECT Statements
-- 06 SQL Aggregate Functions and Grouping
-- 07 JOIN Statments
+- 05 [Operators in SELECT Statements](https://github.com/OTR500miles2go/sep-assignments/tree/master/03-relational-database/05-Operators-in-SELECT-Statements)
+- 06 [SQL Aggregate Functions and Grouping](https://github.com/OTR500miles2go/sep-assignments/tree/master/03-relational-database/06-SQL-Aggregate-Functions-and-Grouping)
+- 07 [JOIN Statments](https://github.com/OTR500miles2go/sep-assignments/tree/master/03-relational-database/07-JOIN-Statements)
 - 08 Quiz
-- 09 Modeling Data Relationships
-- 10 Data Normalization and Denormalization
+- 09 [Data Relationships](https://github.com/OTR500miles2go/sep-assignments/tree/master/03-relational-database/09-Modeling-Data-Relationships)
+- 10 [Data Normalization and Denormalization](https://github.com/OTR500miles2go/sep-assignments/tree/master/03-relational-database/10-Data-Normalization-Denormalization)
 - 11 Quiz
-- 12 Subqueries 
+- 12 [Subqueries](https://github.com/OTR500miles2go/sep-assignments/tree/master/03-relational-database/12-Subqueries) 
 - 13 Quz
 
 # Bloc Software Engineering Principles - ORM Architecture
